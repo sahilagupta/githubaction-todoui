@@ -13,11 +13,18 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
     - name: Checkout
-      uses: actions/checkout@v6.0.1
-    - name: set nodejs
-      run: |
-        curl -s https://deb.nodesource.com/setup_16.x | sudo bash
-        sudo apt install nodejs -y
+      uses: actions/checkout@v16.x
+
+    - name: Setup Node.js environment
+      uses: actions/setup-node@v6.1.0
+      with: 
+        node-version: 16.x
+    
+      
+    # - name: set nodejs
+    #   run: |
+    #     curl -s https://deb.nodesource.com/setup_16.x | sudo bash
+    #     sudo apt install nodejs -y
     - name: instal dependency
       run: |
         npm install
