@@ -8,3 +8,7 @@ jobs:
     - name: Greeting
       run: |
         echo "hello"
+    - name: list file
+      run: ls
+    - name: read file
+      run: cat package.json
