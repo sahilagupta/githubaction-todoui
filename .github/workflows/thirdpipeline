@@ -3,8 +3,8 @@ on: push
 jobs:
   my-job:
     name: 3rd pipeline
-    run_on: ubuntu-latest
-  steps:
-    - name: check
-      run: echo "satsriakal1"
+    runs-on: ubuntu-latest
+    steps:
+      - name: check
+        run: echo "satsriakal1"
   
