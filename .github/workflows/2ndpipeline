@@ -1,0 +1,10 @@
+name: Secondpipeline
+on: push
+jobs:
+  my-job:
+    name: 2nd pipeline
+  run_on: ubuntu-latest
+  steps:
+    - name: check
+      run: echo "satsri"
+  
