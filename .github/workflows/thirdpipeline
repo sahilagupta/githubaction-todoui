@@ -1,10 +1,10 @@
-name: Secondpipeline
+name: thirdpipeline
 on: push
 jobs:
   my-job:
-    name: 2nd pipeline
+    name: 3rd pipeline
   run_on: ubuntu-latest
   steps:
     - name: check
-      run: echo "satsri"
+      run: echo "satsriakal"
   
