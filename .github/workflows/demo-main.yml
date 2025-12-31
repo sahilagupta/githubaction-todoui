@@ -38,6 +38,10 @@ jobs:
       run: |
         npm install
 
+    - name: run build
+      run: |
+        npn run build
+
     - name: Upload a Build Artifact
       uses: actions/upload-artifact@v6.0.0
       with:
@@ -50,10 +54,13 @@ jobs:
     - name: Download a Build Artifact
       uses: actions/download-artifact@v7.0.0
       with: 
-        name: download-${{ github.run_id }}
+        name: build-${{ github.run_id }}
    
     # Destination path. Supports basic tilde expansion. Defaults to $GITHUB_WORKSPACE
         path: download-build/
+
+    - name: Verify downloaded files
+      run: ls download-build
       
            
     - name: set build
