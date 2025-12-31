@@ -7,60 +7,64 @@ on:
   pull_request:
     branches:
     - main
+env: 
+  name: sachi
+
+
 jobs:
   demo: 
     name: demo job
     runs-on: ubuntu-latest
     steps: 
-    - name: Checkout
+    - name: Checkout ${{ env.name }}
       uses: actions/checkout@v6.0.1
 
-    - name: Setup Node.js environment
+    - name: Setup Node.js environment $name
       uses: actions/setup-node@v6.1.0
       with: 
         node-version: 16.x
 
-    - name: Cache
-      uses: actions/cache@v5.0.1
-      with:
-        # A list of files, directories, and wildcard patterns to cache and restore
-        path: ~/.npm
-              node_module
-        # An explicit key for restoring and saving the cache
-        key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
+    # - name: Cache
+    #   uses: actions/cache@v5.0.1
+    #   with:
+    #     # A list of files, directories, and wildcard patterns to cache and restore
+    #     path: ~/.npm
+    #           node_module
+    #     # An explicit key for restoring and saving the cache
+    #     key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
       
       
-    # - name: set nodejs
+    # # - name: set nodejs
+    # #   run: |
+    # #     curl -s https://deb.nodesource.com/setup_16.x | sudo bash
+    # #     sudo apt install nodejs -y
+    # - name: instal dependency
     #   run: |
-    #     curl -s https://deb.nodesource.com/setup_16.x | sudo bash
-    #     sudo apt install nodejs -y
-    - name: instal dependency
-      run: |
-        npm install
+    #     npm install
 
-    - name: set build
-      run: |
-        npm run build
+    # - name: set build
+    #   run: |
+    #     npm run build
 
-    - name: Upload a Build Artifact
-      uses: actions/upload-artifact@v6.0.0
-      with:
-        # Artifact name
-        name: build-${{ github.run_id }}
-        # A file, directory or wildcard pattern that describes what to upload
-        path: build/
-        # The desired behavior if no files are found using the provided path.
+    # - name: Upload a Build Artifact
+    #   uses: actions/upload-artifact@v6.0.0
+    #   with:
+    #     # Artifact name
+    #     name: build-${{ github.run_id }}
+    #     # A file, directory or wildcard pattern that describes what to upload
+    #     path: build/
+    #     # The desired behavior if no files are found using the provided path.
 
-    - name: Download a Build Artifact
-      uses: actions/download-artifact@v7.0.0
-      with: 
-        name: build-${{ github.run_id }}
+    # - name: Download a Build Artifact
+    #   uses: actions/download-artifact@v7.0.0
+    #   with: 
+    #     name: build-${{ github.run_id }}
    
-    # Destination path. Supports basic tilde expansion. Defaults to $GITHUB_WORKSPACE
-        path: download-build/
+    # # Destination path. Supports basic tilde expansion. Defaults to $GITHUB_WORKSPACE
+    #     path: download-build/
 
-    - name: Verify downloaded files
-      run: ls download-build
+    # - name: Verify downloaded files
+    #   run: ls download-build
       
            
 
