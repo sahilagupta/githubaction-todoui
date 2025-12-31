@@ -38,7 +38,7 @@ jobs:
       run: |
         npm install
 
-    - name: run build
+    - name: set build
       run: |
         npn run build
 
@@ -63,6 +63,4 @@ jobs:
       run: ls download-build
       
            
-    - name: set build
-      run: |
-          npm run build
+
