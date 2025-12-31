@@ -1,4 +1,4 @@
-name: thirdpipeline
+name: Third-Pipeline
 on: push
 jobs:
   my-job:
