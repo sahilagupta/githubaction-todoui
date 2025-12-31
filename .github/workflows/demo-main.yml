@@ -19,7 +19,15 @@ jobs:
       uses: actions/setup-node@v6.1.0
       with: 
         node-version: 16.x
-    
+
+    - name: Cache
+      uses: actions/cache@v5.0.1
+      with:
+        # A list of files, directories, and wildcard patterns to cache and restore
+        path: /home/runner/.npm
+        # An explicit key for restoring and saving the cache
+        key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
+      
       
     # - name: set nodejs
     #   run: |
