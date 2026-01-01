@@ -1,12 +1,10 @@
 name: demo workflow
 on: 
-  push:
-    branches:
-    - main
-    - features/*
-  pull_request:
-    branches:
-    - main
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "select env"
+        default: dev
 
 
 
@@ -15,7 +13,7 @@ jobs:
     name: demo job
     runs-on: ubuntu-latest
     steps: 
-    - name: Checkout ${{ vars.second }}
+    - name: Checkout ${{ vars.second }}-{{  inputs.environment  }} 
       uses: actions/checkout@v6.0.1
 
     - name: Setup Node.js environment 
