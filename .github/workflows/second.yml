@@ -6,4 +6,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: check
-        run: echo "satsri"
+        run: echo "satsri $second"
