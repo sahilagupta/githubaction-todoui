@@ -6,4 +6,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: check
-        run: echo "satsri $second"
+        run: echo "satsri ${{ var.second }}"
