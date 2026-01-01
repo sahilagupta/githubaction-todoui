@@ -1,9 +1,0 @@
-name: Secondpipeline
-on: push
-jobs:
-  my-job:
-    name: 2nd pipeline
-    runs-on: ubuntu-latest
-    steps:
-      - name: check
-        run: echo "satsri ${{ vars.second }}"
